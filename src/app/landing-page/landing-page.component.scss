@@ -1,0 +1,127 @@
+@import './../../styles.scss';
+
+.landing-page-bg{
+    height: 100dvh;
+    width: 100vw;
+    @include displayFlex();
+    background: 
+        linear-gradient(180deg, #000000 -9.91%, rgba(0, 0, 0, 0.55) 54.3%, #000000 98.36%),
+        url('./../../assets/img/landing-page-bg.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 108px;
+    @include displayFlex($jc: space-between);
+    padding: 10px 96px;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 108px;
+    @include displayFlex();
+    gap: 48px;
+}
+
+.content{
+    @include displayFlex($fd: column, $jc: space-between);
+    width: 605px;
+    height: 189px;
+}
+
+
+.login-btn{
+    width: 99px;
+    height: 48px;
+    text-decoration: none;
+    border-radius: 40px;
+    background-color: $blue;
+    color: white;
+    @include displayFlex();
+    font-size: 18px;
+    font-weight: 700;
+    // transition: all 125ms ease;
+
+    &:hover{
+        scale: 1.02;
+        background-color: $hover-blue;
+    }
+}
+
+.footer-link{
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+
+    &:hover{
+        scale: 1.02;
+    }
+}
+
+
+h1{
+    font-size: 48px;
+    color: white;
+    font-weight: 700;
+}
+
+.content-span{
+    font-size: 18px;
+    color: white;
+}
+
+.input-div{
+    @include displayFlex($jc: space-between);
+    width: 518px;
+
+    >input{
+        width: 360px;
+        height: 48px;
+        border-radius: 40px;
+        border: 1px solid white;
+        background-color: transparent;
+        color: white;
+        padding: 12px 24px;
+        font-size: 18px;
+        // outline: none;
+        
+        &::placeholder{
+            color: white;
+        }
+
+        &:focus::placeholder {
+            opacity: 0;
+        }
+    }
+}
+
+.signup-btn{
+    width: 142px;
+    height: 48px;
+    text-decoration: none;
+    border: none;
+    border-radius: 40px;
+    background-color: $blue;
+    color: white;
+    @include displayFlex();
+    font-size: 18px;
+    font-weight: 700;
+    // transition: all 125ms ease;
+
+    &:hover{
+        scale: 1.02;
+        background-color: $hover-blue;
+        cursor: pointer;
+    }
+}
