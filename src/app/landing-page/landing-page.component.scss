@@ -10,11 +10,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-
 }
-
-
-
 
 
 .content{
@@ -34,15 +30,12 @@
     @include displayFlex();
     font-size: 18px;
     font-weight: 700;
-    // transition: all 125ms ease;
 
     &:hover{
         scale: 1.02;
         background-color: $hover-blue;
     }
 }
-
-
 
 h1{
     font-size: 48px;
@@ -68,7 +61,6 @@ h1{
         color: white;
         padding: 12px 24px;
         font-size: 18px;
-        // outline: none;
         
         &::placeholder{
             color: white;
@@ -80,22 +72,3 @@ h1{
     }
 }
 
-.signup-btn{
-    width: 142px;
-    height: 48px;
-    text-decoration: none;
-    border: none;
-    border-radius: 40px;
-    background-color: $blue;
-    color: white;
-    @include displayFlex();
-    font-size: 18px;
-    font-weight: 700;
-    // transition: all 125ms ease;
-
-    &:hover{
-        scale: 1.02;
-        background-color: $hover-blue;
-        cursor: pointer;
-    }
-}

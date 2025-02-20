@@ -9,3 +9,15 @@ header{
     @include displayFlex($jc: space-between);
     padding: 10px 96px;
 }
+
+.logo{
+    transition: all 125ms ease;
+    &:hover{
+        cursor: pointer;
+        scale: 1.02;
+    }
+}
+
+.hidden{
+    opacity: 0;
+}
