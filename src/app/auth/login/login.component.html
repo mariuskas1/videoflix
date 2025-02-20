@@ -1,7 +1,31 @@
 <div class="login-bg">
     <app-header [usecase]="'login'"></app-header>
 
-    <div class="content"></div>
+    <div class="content">
+        <h1>Log in</h1>
+        <input type="text" placeholder="Email Address">
+        <div class="pw-input-container">
+            <input type="text" placeholder="Password">
+            <img src="./../../../assets/img/visibility.png" class="visibility-icon">
+        </div>
+        
+
+        <div class="checkbox-div">
+            <label for="remember" class="checkbox-container">
+                <input type="checkbox" id="remember" name="remember">
+                Remember Me
+                <span class="checkmark"></span>
+            </label>
+        </div>
+        
+
+        <button class="btn">Log in</button>
+        <a href="" class="blue-link">Forgot Password?</a>
+        <div class="login-bottom">
+            <span>New to Videoflix?</span>
+            <a href="" class="blue-link">Sign Up now</a>
+        </div>
+    </div>
 
     <app-footer [usecase]="'login'"></app-footer>
 </div>

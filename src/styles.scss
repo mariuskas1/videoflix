@@ -41,8 +41,37 @@ $hover-blue: rgba(50, 68, 226, 1);
   padding: 12px 24px;
 
   &:hover{
-      scale: 1.02;
+      scale: 1.01;
       background-color: $hover-blue;
       cursor: pointer;
+  }
+}
+
+h1{
+  font-size: 48px;
+  font-weight: 700;
+  color: $blue;
+}
+
+input{
+  height: 48px;
+  width: 100%;
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: 1px solid $blue;
+  font-size: 18px;
+  color: $blue;
+
+  &::placeholder{
+    font-size: 18px;
+    color: $blue;
+  }
+
+  &:focus{
+    outline: none;
+  }
+
+  &:focus::placeholder {
+    opacity: 0;
   }
 }

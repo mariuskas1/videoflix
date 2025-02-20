@@ -13,4 +13,104 @@
     background-repeat: no-repeat;
 }
 
+
+.content{
+    height: 466px;
+    width: 520px;
+    background-color: white;
+    border-radius: 48px;
+    @include displayFlex($fd:column, $jc:space-between);
+    padding: 43px 56px;
+}
  
+.blue-link{
+    font-size: 18px;
+    font-weight: 700;
+    color: $blue;
+    text-decoration: none;
+
+    &:hover{
+        cursor: pointer;
+        scale: 1.01;
+    }
+}
+
+.login-bottom{
+    width: 100%;
+    @include displayFlex();
+    gap: 16px;
+
+    >span{
+        font-weight: 500;
+        font-size: 18px;
+    }
+}
+
+.checkbox-div{
+    width: 100%;
+    @include displayFlex($jc:flex-start);
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+    position: relative;
+    padding-left: 30px;
+  }
+  
+  .checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .checkmark {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 18px;
+    width: 18px;
+    background-color: white;
+    border: 1px solid $blue;
+    border-radius: 4px;
+    transition: all 0.1s, border 0.2s;
+  }
+  
+  .checkbox-container input:checked + .checkmark {
+    background-color: $blue;
+    border-color: $blue;
+  }
+  
+  .checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 5px;
+    top: -1px;
+    width: 5px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+  
+  .checkbox-container input:checked + .checkmark::after {
+    display: block;
+  }
+
+  .pw-input-container{
+    position: relative;
+    width: 100%;
+  }
+
+  .visibility-icon{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-40%);
+    right: 24px;
+    cursor: pointer;
+  }
