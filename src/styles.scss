@@ -74,6 +74,10 @@ input{
   &:focus::placeholder {
     opacity: 0;
   }
+
+  &:-webkit-autofill{
+    -webkit-text-fill-color: $blue;
+  }
 }
 
 

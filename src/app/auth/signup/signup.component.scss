@@ -20,6 +20,15 @@
     border-radius: 48px;
     @include displayFlex($fd:column, $jc:space-between);
     padding: 43px 56px;
+
+    >form{
+        height: 100%;
+        width: 100%;
+        @include displayFlex($fd:column, $jc:space-between);
+        margin-top: 32px;
+        position: relative;
+
+    }
 }
 
 
@@ -41,6 +50,9 @@
   }
 
   .error-div{
+    position: absolute;
+    bottom: 64px;
+    left: 8px;
     font-size: 15px;
     color: rgba(255, 0, 46, 1);
     width: 100%;
@@ -53,4 +65,17 @@
 
   .hidden{
     display: none;
+  }
+
+  .invalid-input{
+    border: 1px solid rgba(255, 0, 46, 1);
+    color: #ff002e;
+
+    &::placeholder{
+        color: #ff002e;
+    }
+  }
+
+  .invalid-input-img{
+    filter: invert(13%) sepia(84%) saturate(4903%) hue-rotate(342deg) brightness(106%) contrast(115%);
   }

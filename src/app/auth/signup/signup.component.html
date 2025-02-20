@@ -3,22 +3,46 @@
 
     <div class="content">
         <h1>Sign Up</h1>
-        <input type="text" placeholder="Email Address">
-        <div class="pw-input-container">
-            <input [type]="showPassword1 ? 'text' : 'password'" placeholder="Password">
-            <img [src]="showPassword1 ? './../../../assets/img/visibility_off.png' : './../../../assets/img/visibility.png'"  class="visibility-icon" (click)="togglePassword1Visibility()">
-        </div>
-        <div class="pw-input-container">
-            <input [type]="showPassword2 ? 'text' : 'password'" placeholder="Confirm Password">
-            <img [src]="showPassword2 ? './../../../assets/img/visibility_off.png' : './../../../assets/img/visibility.png'"  class="visibility-icon" (click)="togglePassword2Visibility()">
-        </div>
+        <form (ngSubmit)="onSubmit(signupForm)" #signupForm="ngForm">
+            <input type="text" placeholder="Email Address" [(ngModel)]="signupData.email" required email name="email" #emailInput="ngModel"
+                [ngClass]="{ 'invalid-input': signupForm.submitted && emailInput.invalid}" >
+            <div class="pw-input-container">
+                <input [type]="showPassword1 ? 'text' : 'password'" placeholder="Password" [(ngModel)]="signupData.password" 
+                    [ngClass]="{ 'invalid-input': pwsTooShort || pwsDontMatch }" 
+                    required minlength="6" name="password">
+                <img [src]="showPassword1 ? './../../../assets/img/visibility_off.png' : './../../../assets/img/visibility.png'"  
+                    class="visibility-icon" (click)="togglePassword1Visibility()" [ngClass]="{ 'invalid-input-img': pwsTooShort || pwsDontMatch }">
+            </div>
+            <div class="pw-input-container">
+                <input [type]="showPassword2 ? 'text' : 'password'" placeholder="Confirm Password" [(ngModel)]="signupData.repeated_pw" 
+                    [ngClass]="{ 'invalid-input': pwsTooShort || pwsDontMatch }"
+                    required minlength="6" name="repeated_pw">
+                <img [src]="showPassword2 ? './../../../assets/img/visibility_off.png' : './../../../assets/img/visibility.png'"  
+                    class="visibility-icon" (click)="togglePassword2Visibility()" [ngClass]="{ 'invalid-input-img': pwsTooShort || pwsDontMatch }">
+            </div>
 
-        <div class="error-div" [ngClass]="{ 'hidden': !pwsDontMatch }">
-            <img src="./../../../assets/img/warning.png" alt="">
-            <span>Email Address or Password are incorrect</span>
-        </div>
+            @if(pwsDontMatch){
+                <div class="error-div">
+                    <img src="./../../../assets/img/warning.png" alt="">
+                    <span>Passwords must match.</span>
+                </div>
+            }@else if (pwsTooShort) {
+                <div class="error-div">
+                    <img src="./../../../assets/img/warning.png" alt="">
+                    <span>Password must at least be 6 characters long.</span>
+                </div>
+            }@else if (signupForm.submitted && emailInput.invalid) {
+                <div class="error-div">
+                    <img src="./../../../assets/img/warning.png" alt="">
+                    <span>Please enter a valid mail.</span>
+                </div>
+            }
+            
 
-        <button class="btn">Get Started</button>
+            <button class="btn" type="submit">Get Started</button>
+
+        </form>
+        
 
     </div>
 
