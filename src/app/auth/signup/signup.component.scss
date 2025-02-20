@@ -12,3 +12,45 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+
+.content{
+    height: 492px;
+    width: 520px;
+    background-color: white;
+    border-radius: 48px;
+    @include displayFlex($fd:column, $jc:space-between);
+    padding: 43px 56px;
+}
+
+
+.pw-input-container{
+    position: relative;
+    width: 100%;
+  }
+
+  .visibility-icon{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-40%);
+    right: 24px;
+    
+    &:hover{
+        cursor: pointer;
+        scale: 1.02;
+    }
+  }
+
+  .error-div{
+    font-size: 15px;
+    color: rgba(255, 0, 46, 1);
+    width: 100%;
+    @include displayFlex($jc:flex-start);
+
+    >img{
+        margin-right: 4px;
+    }
+  }
+
+  .hidden{
+    display: none;
+  }
