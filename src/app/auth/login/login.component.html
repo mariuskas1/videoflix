@@ -8,6 +8,10 @@
             <input [type]="showPassword ? 'text' : 'password'" placeholder="Password">
             <img [src]="showPassword ? './../../../assets/img/visibility_off.png' : './../../../assets/img/visibility.png'"  class="visibility-icon" (click)="togglePasswordVisibility()">
         </div>
+        <div class="error-div" [ngClass]="{ 'hidden': !loginFailed }">
+            <img src="./../../../assets/img/warning.png" alt="">
+            <span>Email Address or Password are incorrect</span>
+        </div>
         
 
         <div class="checkbox-div">
@@ -20,10 +24,10 @@
         
 
         <button class="btn">Log in</button>
-        <a href="" class="blue-link">Forgot Password?</a>
+        <a href="forgot-pw" class="blue-link">Forgot Password?</a>
         <div class="login-bottom">
             <span>New to Videoflix?</span>
-            <a href="" class="blue-link">Sign Up now</a>
+            <a href="signup" class="blue-link">Sign Up now</a>
         </div>
     </div>
 

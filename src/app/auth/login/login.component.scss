@@ -118,3 +118,18 @@
         scale: 1.02;
     }
   }
+
+  .error-div{
+    font-size: 15px;
+    color: rgba(255, 0, 46, 1);
+    width: 100%;
+    @include displayFlex($jc:flex-start);
+
+    >img{
+        margin-right: 4px;
+    }
+  }
+
+  .hidden{
+    display: none;
+  }
