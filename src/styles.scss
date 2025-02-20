@@ -27,3 +27,22 @@ $hover-blue: rgba(50, 68, 226, 1);
 
 // $hover-blue: rgba(56, 75, 230, 1);
 
+
+.btn{
+  height: 48px;
+  text-decoration: none;
+  border-radius: 40px;
+  background-color: $blue;
+  color: white;
+  @include displayFlex();
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  padding: 12px 24px;
+
+  &:hover{
+      scale: 1.02;
+      background-color: $hover-blue;
+      cursor: pointer;
+  }
+}
