@@ -112,5 +112,9 @@
     top: 50%;
     transform: translateY(-40%);
     right: 24px;
-    cursor: pointer;
+    
+    &:hover{
+        cursor: pointer;
+        scale: 1.02;
+    }
   }

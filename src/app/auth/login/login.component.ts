@@ -10,5 +10,10 @@ import { FooterComponent } from '../../shared/footer/footer.component';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
+  showPassword = false;
 
+  
+  togglePasswordVisibility(){
+    this.showPassword = !this.showPassword;
+  }
 }

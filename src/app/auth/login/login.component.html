@@ -5,8 +5,8 @@
         <h1>Log in</h1>
         <input type="text" placeholder="Email Address">
         <div class="pw-input-container">
-            <input type="text" placeholder="Password">
-            <img src="./../../../assets/img/visibility.png" class="visibility-icon">
+            <input [type]="showPassword ? 'text' : 'password'" placeholder="Password">
+            <img [src]="showPassword ? './../../../assets/img/visibility_off.png' : './../../../assets/img/visibility.png'"  class="visibility-icon" (click)="togglePasswordVisibility()">
         </div>
         
 
