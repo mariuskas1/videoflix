@@ -1,0 +1,76 @@
+@import './../../../styles.scss';
+
+.forgot-pw-bg{
+    height: 100dvh;
+    width: 100vw;
+    @include displayFlex();
+    
+    background: 
+        linear-gradient(180deg, rgba(0, 0, 0, 0.8) -27.44%, rgba(0, 0, 0, 0.44) 44.23%, rgba(0, 0, 0, 0.8) 100%),
+        url('./../../../assets/img/login-bg.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.content{
+    height: 404px;
+    width: 520px;
+    background-color: white;
+    border-radius: 48px;
+    @include displayFlex($fd:column, $jc:space-between);
+    padding: 43px 56px;
+
+    >form{
+        height: 100%;
+        width: 100%;
+        @include displayFlex($fd:column, $jc:space-between);
+        margin-top: 32px;
+        position: relative;
+
+        >span{
+            text-align: center;
+            font-size: 18px;
+        }
+    }
+}
+
+h1 {
+    line-height: 48px;
+}
+
+.btn{
+    margin-top: 24px;
+
+    &:disabled{
+        cursor: default;
+        scale: none;
+        background-color: rgba(46, 62, 223, 0.5);
+    }
+}
+
+
+.error-div{
+    position: absolute;
+    bottom: 60px;
+    left: 8px;
+    font-size: 15px;
+    color: rgba(255, 0, 46, 1);
+    width: 100%;
+    @include displayFlex($jc:flex-start);
+
+    >img{
+        margin-right: 4px;
+    }
+  }
+
+
+  .invalid-input{
+    border: 1px solid rgba(255, 0, 46, 1);
+    color: #ff002e;
+
+    &::placeholder{
+        color: #ff002e;
+    }
+  }

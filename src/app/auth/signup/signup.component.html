@@ -1,5 +1,5 @@
 <div class="signup-bg">
-    <app-header [usecase]="'login'"></app-header>
+    <app-header [usecase]="'signup'"></app-header>
 
     <div class="content">
         <h1>Sign Up</h1>
@@ -34,7 +34,7 @@
             }@else if (signupForm.submitted && emailInput.invalid) {
                 <div class="error-div">
                     <img src="./../../../assets/img/warning.png" alt="">
-                    <span>Please enter a valid mail.</span>
+                    <span>Please enter a valid email address.</span>
                 </div>
             }
             
