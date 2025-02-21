@@ -16,7 +16,7 @@
 
         <div class="checkbox-div">
             <label for="remember" class="checkbox-container">
-                <input type="checkbox" id="remember" name="remember">
+                <input type="checkbox" id="remember" name="remember" (change)="toggleRememberUser($event)">
                 Remember Me
                 <span class="checkmark"></span>
             </label>

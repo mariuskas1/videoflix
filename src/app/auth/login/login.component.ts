@@ -17,6 +17,7 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   showPassword = false;
   loginFailed = false;
+  rememberUser = false;
 
   loginURL = 'http://127.0.0.1:8000/api/login/';
 
@@ -28,9 +29,29 @@ export class LoginComponent {
   constructor(private router: Router) {}
 
 
+  ngOnInit(){
+    this.checkLocalStorageForRememberedUser();
+  }
+
+  checkLocalStorageForRememberedUser(){
+    const rememberedUserData = JSON.parse(localStorage.getItem('vfRememberedUserData') || '{}');
+    if(rememberedUserData && rememberedUserData.token){
+      localStorage.setItem('vfUserData', JSON.stringify(rememberedUserData));
+      this.router.navigate(['/main']);
+    }
+  }
+
+
   togglePasswordVisibility(){
     this.showPassword = !this.showPassword;
   }
+
+
+  toggleRememberUser(event:Event){
+    const target = event.target as HTMLInputElement;
+    this.rememberUser = target.checked;
+  }
+
 
   async logIn(){
     try {
@@ -63,6 +84,10 @@ export class LoginComponent {
       email: data.email,
       id: data.id
     };
+
+    if(this.rememberUser){
+      localStorage.setItem('vfRememberedUserData', JSON.stringify(userData));
+    }
     
     localStorage.setItem('vfUserData', JSON.stringify(userData));
     this.router.navigate(['/main']);
