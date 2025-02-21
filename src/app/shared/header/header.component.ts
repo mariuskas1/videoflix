@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,4 +12,13 @@ import { FormsModule } from '@angular/forms';
 })
 export class HeaderComponent {
   @Input() usecase:string = '';
+
+  constructor(private router: Router){}
+
+
+  logOut(){
+    localStorage.removeItem('vfUserData');
+    localStorage.removeItem('vfRememberedUserData');
+    this.router.navigate(['/'])
+  }
 }

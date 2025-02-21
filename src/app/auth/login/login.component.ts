@@ -26,15 +26,6 @@ export class LoginComponent {
     password: ''
   };
 
-  loginRequest = {
-    method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(this.loginData)
-  };
-
-
   constructor(private router: Router) {}
 
 
@@ -65,9 +56,9 @@ export class LoginComponent {
 
   async logIn(){
     try {
-      const response = await fetch(this.loginURL, this.loginRequest);
+      const response = await fetch(this.loginURL, this.getLoginRequest());
       const responseData = await response.json();
-      
+
       if(response.ok && responseData.token){
         this.handleSuccesfulLogin(responseData);
       } else{
@@ -76,6 +67,15 @@ export class LoginComponent {
     } catch (error) {
       console.error(error);
     }
+  }
+
+
+  getLoginRequest(){
+    return {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(this.loginData)
+    };
   }
 
 
