@@ -3,9 +3,9 @@
 
     <div class="content">
         <h1>Log in</h1>
-        <input type="text" placeholder="Email Address">
+        <input type="text" placeholder="Email Address" email name="email" [(ngModel)]="loginData.email" (keydown.enter)="logIn()">
         <div class="pw-input-container">
-            <input [type]="showPassword ? 'text' : 'password'" placeholder="Password">
+            <input [type]="showPassword ? 'text' : 'password'" placeholder="Password" [(ngModel)]="loginData.password" (keydown.enter)="logIn()">
             <img [src]="showPassword ? './../../../assets/img/visibility_off.png' : './../../../assets/img/visibility.png'"  class="visibility-icon" (click)="togglePasswordVisibility()">
         </div>
         <div class="error-div" [ngClass]="{ 'hidden': !loginFailed }">
@@ -23,7 +23,7 @@
         </div>
         
 
-        <button class="btn">Log in</button>
+        <button class="btn" (click)="logIn()">Log in</button>
         <a href="forgot-pw" class="blue-link">Forgot Password?</a>
         <div class="login-bottom">
             <span>New to Videoflix?</span>
