@@ -25,8 +25,10 @@ export class LoginComponent {
     email: '',
     password: ''
   };
+  
 
   constructor(private router: Router) {}
+
 
 
   ngOnInit(){

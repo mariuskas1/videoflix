@@ -14,7 +14,7 @@
                     class="visibility-icon" (click)="togglePassword1Visibility()" [ngClass]="{ 'invalid-input-img': pwsTooShort || pwsDontMatch }">
             </div>
             <div class="pw-input-container">
-                <input [type]="showPassword2 ? 'text' : 'password'" placeholder="Confirm Password" [(ngModel)]="signupData.repeated_pw" 
+                <input [type]="showPassword2 ? 'text' : 'password'" placeholder="Confirm Password" [(ngModel)]="signupData.repeated_password" 
                     [ngClass]="{ 'invalid-input': pwsTooShort || pwsDontMatch }"
                     required minlength="6" name="repeated_pw">
                 <img [src]="showPassword2 ? './../../../assets/img/visibility_off.png' : './../../../assets/img/visibility.png'"  
