@@ -26,12 +26,22 @@ export class LoginComponent {
     password: ''
   };
 
+  loginRequest = {
+    method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(this.loginData)
+  };
+
+
   constructor(private router: Router) {}
 
 
   ngOnInit(){
     this.checkLocalStorageForRememberedUser();
   }
+
 
   checkLocalStorageForRememberedUser(){
     const rememberedUserData = JSON.parse(localStorage.getItem('vfRememberedUserData') || '{}');
@@ -55,26 +65,17 @@ export class LoginComponent {
 
   async logIn(){
     try {
-      const response = await fetch(this.loginURL, {
-        method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(this.loginData)
-      });
-
+      const response = await fetch(this.loginURL, this.loginRequest);
       const responseData = await response.json();
-
+      
       if(response.ok && responseData.token){
         this.handleSuccesfulLogin(responseData);
       } else{
         this.handleFailedLogin();
       }
-
     } catch (error) {
       console.error(error);
     }
-    
   }
 
 
