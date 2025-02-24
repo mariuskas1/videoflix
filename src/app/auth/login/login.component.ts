@@ -92,7 +92,7 @@ export class LoginComponent {
       localStorage.setItem('vfRememberedUserData', JSON.stringify(userData));
     }
     
-    localStorage.setItem('vfUserData', JSON.stringify(userData));
+    sessionStorage.setItem('vfUserData', JSON.stringify(userData));
     this.router.navigate(['/main']);
   }
 
