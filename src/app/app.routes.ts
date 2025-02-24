@@ -4,6 +4,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { ForgotPwComponent } from './auth/forgot-pw/forgot-pw.component';
 import { MainPageComponent } from './main-page/main-page.component';
+import { VideoPlayerComponent } from './video-player/video-player.component';
 
 export const routes: Routes = [
     { path: '', component: LandingPageComponent },
@@ -11,4 +12,5 @@ export const routes: Routes = [
     { path: 'signup', component: SignupComponent },
     { path: 'forgot-pw', component: ForgotPwComponent },
     { path: 'main', component: MainPageComponent },
+    { path: 'play', component: VideoPlayerComponent },
 ];
