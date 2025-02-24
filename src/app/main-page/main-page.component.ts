@@ -4,13 +4,14 @@ import { Video } from '../models/video.model';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable, takeUntil } from 'rxjs';
 import { Subject } from 'rxjs';
+import { FooterComponent } from "../shared/footer/footer.component";
 
 
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [HeaderComponent, HttpClientModule],
+  imports: [HeaderComponent, HttpClientModule, FooterComponent],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.scss'
 })
