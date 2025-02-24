@@ -17,7 +17,10 @@
     <div class="category-div new">
         <span class="category-title">New on Videoflix</span>
         <div class="thumbnail-row">
-            <img src="./../../assets/img/thumbnails/rhythms_of_friendship.jpeg" class="thumbnail-img">
+            @for (video of videos; track $index) {
+                <img [src]= "video.thumbnail" class="thumbnail-img" >
+            }
+            
         </div>
     </div>
 </div>
