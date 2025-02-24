@@ -12,5 +12,5 @@ export const routes: Routes = [
     { path: 'signup', component: SignupComponent },
     { path: 'forgot-pw', component: ForgotPwComponent },
     { path: 'main', component: MainPageComponent },
-    { path: 'play', component: VideoPlayerComponent },
+    { path: 'play/:id', component: VideoPlayerComponent },
 ];

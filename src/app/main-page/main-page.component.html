@@ -19,7 +19,7 @@
         <span class="category-title">New on Videoflix</span>
         <div class="thumbnail-row">
             @for (video of newVideos; track $index) {
-                <img [src]= "video.thumbnail" class="thumbnail-img" >
+                <img [src]= "video.thumbnail" class="thumbnail-img" (click)="playVideo(video.id)">
             }
         </div>
     </div>
@@ -32,7 +32,7 @@
             <span class="category-title">{{ genreKey }}</span>
             <div class="thumbnail-row">
                 @for (video of sortedVideos[genreKey]; track $index) {
-                    <img [src]= "video.thumbnail" class="thumbnail-img" >
+                    <img [src]= "video.thumbnail" class="thumbnail-img" (click)="playVideo(video.id)">
                 }
             </div>
         </div>

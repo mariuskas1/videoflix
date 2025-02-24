@@ -5,6 +5,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable, takeUntil } from 'rxjs';
 import { Subject } from 'rxjs';
 import { FooterComponent } from "../shared/footer/footer.component";
+import { Router } from '@angular/router';
 
 
 
@@ -22,7 +23,7 @@ export class MainPageComponent {
   sortedVideos: { [key: string]: Video[] } = {};
   private unsubscribe$ = new Subject<void>();
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient, private router: Router){}
 
 
   ngOnInit(){
@@ -68,6 +69,12 @@ export class MainPageComponent {
   getVideoGenres(){
     return Object.keys(this.sortedVideos);
   }
+
+
+  playVideo(id: number){
+    this.router.navigate(['/play', id]);
+  }
+
 
 
   ngOnDestroy(): void {
