@@ -6,19 +6,31 @@
     @include displayFlex();
     position: relative;
     overflow: hidden;
-    background: linear-gradient(180deg, rgba(20, 20, 20, 0.6) 0%, rgba(20, 20, 20, 0) 50%, #141414 100%);
+    // background: linear-gradient(180deg, rgba(20, 20, 20, 0.6) 0%, rgba(20, 20, 20, 0) 50%, #141414 100%);
 
 }
 
 video{
     object-fit: cover;
-    background: linear-gradient(180deg, rgba(20, 20, 20, 0.6) 0%, rgba(20, 20, 20, 0) 50%, #141414 100%);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     object-fit: cover;
 }
+
+.main-video-filter{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 50;
+    background: linear-gradient(180deg, rgba(20, 20, 20, 0.6) 0%, rgba(20, 20, 20, 0) 50%, #141414 100%);
+}
+
+
+
 
 app-header{
     z-index: 100;
@@ -28,6 +40,7 @@ app-header{
     width: 100%;
     @include displayFlex($jc:flex-start);
     padding-left: 96px;
+    z-index: 100;
 }
 
 .video-info{
@@ -36,6 +49,7 @@ app-header{
     @include displayFlex($fd:column, $ai:flex-start);
     width: 440px;
     height: 311px;
+    z-index: 100;
 }
 
 h2{
@@ -59,6 +73,7 @@ h2{
     padding-left: 96px;
     @include displayFlex($fd:column, $ai: flex-start);
     overflow: hidden;
+    z-index: 100;
 }
 
 .category-div.new{
@@ -77,11 +92,19 @@ h2{
 .thumbnail-row{
     width: 100%;
     overflow: hidden;
+    
 }
 
 .thumbnail-img{
     width: 213px;
     height: 120px;
+    margin-right: 16px;
+    transition: all 125ms ease;
+
+    &:hover{
+        cursor: pointer;
+        scale: 1.02;
+    }
 }
 
 

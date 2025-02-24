@@ -40,6 +40,9 @@ export class MainPageComponent {
   }
 
 
+  
+
+
   getVideos(): Observable<Video[]>{
     return this.http.get<Video[]>(this.videosURL);
   }
