@@ -17,6 +17,8 @@ import { Subject } from 'rxjs';
 export class MainPageComponent {
   videosURL = 'http://127.0.0.1:8000/api/videos/';
   videos: Video[] = [];
+  newVideos: Video[] = [];
+  sortedVideos: { [key: string]: Video[] } = {};
   private unsubscribe$ = new Subject<void>();
 
   constructor(private http: HttpClient){}
@@ -31,7 +33,7 @@ export class MainPageComponent {
     this.getVideos().pipe(takeUntil(this.unsubscribe$)).subscribe({
       next: (data) => {
         this.videos = data;
-        console.log(this.videos);
+        this.sortVideos();
       },
       error: (error) => {
         console.error('Error fetching videos:', error);
@@ -40,11 +42,30 @@ export class MainPageComponent {
   }
 
 
-  
+  sortVideos(){
+    this.newVideos = this.videos.filter(video => video.new);
+
+    this.videos.forEach((video) => {
+      const categoryKey = video.genre.charAt(0).toUpperCase() + video.genre.slice(1);
+
+      if(!this.sortedVideos[categoryKey]){
+        this.sortedVideos[categoryKey] = [];
+      }
+
+      this.sortedVideos[categoryKey].push(video);
+    });
+
+    console.log(this.sortedVideos);
+  }
 
 
   getVideos(): Observable<Video[]>{
     return this.http.get<Video[]>(this.videosURL);
+  }
+
+
+  getVideoGenres(){
+    return Object.keys(this.sortedVideos);
   }
 
 
