@@ -8,7 +8,7 @@
     @if(usecase !== 'main'){
         <a href="login" class="btn" [ngClass]="{'hidden': usecase === 'login'}">Log In</a>
     }@else {
-        <button class="btn" (click)="logOut()"><img src="./../../../assets/img/logout.png" class="logout-icon"> Log Out </button>
+        <button class="btn" (click)="logOut()"><img src="./../../../assets/img/logout.png" class="logout-icon">Log Out</button>
     }
     
 </header>
