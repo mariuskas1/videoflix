@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
   @Input() usecase:string = '';
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private location: Location){}
 
 
   logOut(){
@@ -22,5 +22,7 @@ export class HeaderComponent {
     this.router.navigate(['/'])
   }
 
-
+  redirect(){
+    this.location.back();
+  }
 }
