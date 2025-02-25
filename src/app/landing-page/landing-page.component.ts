@@ -18,6 +18,20 @@ export class LandingPageComponent {
   constructor(private router: Router){}
 
 
+  ngOnInit(){
+    this.checkLocalStorageForRememberedUser();
+  }
+
+
+  checkLocalStorageForRememberedUser(){
+    const rememberedUserData = JSON.parse(localStorage.getItem('vfRememberedUserData') || '{}');
+    if(rememberedUserData && rememberedUserData.token){
+      localStorage.setItem('vfUserData', JSON.stringify(rememberedUserData));
+      this.router.navigate(['/main']);
+    }
+  }
+  
+
   checkUserInput(){
     if(this.userInput?.length > 1){
       this.router.navigate(['/signup']);
