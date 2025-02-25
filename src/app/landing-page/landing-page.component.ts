@@ -19,7 +19,7 @@ export class LandingPageComponent {
 
 
   ngOnInit(){
-    this.checkLocalStorageForRememberedUser();
+     this.checkLocalStorageForRememberedUser();
   }
 
 
@@ -30,7 +30,7 @@ export class LandingPageComponent {
       this.router.navigate(['/main']);
     }
   }
-  
+
 
   checkUserInput(){
     if(this.userInput?.length > 1){

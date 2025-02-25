@@ -64,12 +64,9 @@ export class VjsPlayerComponent {
 
 
   addHeaderToPlayer(){
-    if (!this.player) return;
-
-    const playerElement = this.player.el(); // Get Video.js container
+    const playerElement = this.player.el(); 
     if (!playerElement) return;
 
-    // Create the header element
     const headerElement = document.createElement('div');
     headerElement.className = 'vjs-video-header';
     headerElement.innerHTML = `
@@ -77,14 +74,12 @@ export class VjsPlayerComponent {
       <img src="./../../assets/img/logo_small.png">
     `;
 
-    // Append header to the player
     playerElement.appendChild(headerElement);
     const arrowBackElement = headerElement.querySelector('.arrow-back');
     if (arrowBackElement) {
       arrowBackElement.addEventListener('click', () => this.returnToMainPage());
     }
 
-    // Handle hiding/showing header based on user activity
     this.setupHeaderVisibility(headerElement);
   }
 
@@ -97,14 +92,14 @@ export class VjsPlayerComponent {
     const showHeader = () => {
         headerElement.classList.add('visible');
         clearTimeout(timeout);
-        timeout = setTimeout(() => headerElement.classList.remove('visible'), 2000); // Hide after 2s
+        timeout = setTimeout(() => headerElement.classList.remove('visible'), 2000); 
     };
 
-    // Show header when user interacts
     this.player.on('mousemove', showHeader);
     this.player.on('touchstart', showHeader);
   }
 
+  
   returnToMainPage(){
     console.log('hel')
     this.router.navigate(['/main']);

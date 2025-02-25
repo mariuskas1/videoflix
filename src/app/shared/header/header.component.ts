@@ -17,8 +17,10 @@ export class HeaderComponent {
 
 
   logOut(){
-    localStorage.removeItem('vfUserData');
+    sessionStorage.removeItem('vfUserData');
     localStorage.removeItem('vfRememberedUserData');
     this.router.navigate(['/'])
   }
+
+
 }
