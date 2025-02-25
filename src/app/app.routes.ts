@@ -5,12 +5,13 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { ForgotPwComponent } from './auth/forgot-pw/forgot-pw.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { VideoPlayerComponent } from './video-player/video-player.component';
+import { authGuard } from './auth/guards/auth.guard';
 
 export const routes: Routes = [
     { path: '', component: LandingPageComponent },
     { path: 'login', component: LoginComponent },
     { path: 'signup', component: SignupComponent },
     { path: 'forgot-pw', component: ForgotPwComponent },
-    { path: 'main', component: MainPageComponent },
-    { path: 'play/:id', component: VideoPlayerComponent },
+    { path: 'main', component: MainPageComponent, canActivate: [authGuard] },
+    { path: 'play/:id', component: VideoPlayerComponent, canActivate: [authGuard] },
 ];
