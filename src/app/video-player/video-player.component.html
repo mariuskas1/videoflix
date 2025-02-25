@@ -1,7 +1,6 @@
 <div class="video-bg">
-    @if (video.video_file) {}
-    <video #videoPlayer class="video-js vjs-default-skin" controls>
-        <source [src]="video.video_file" type="video/mp4">
-    </video>
-    
+    @if (videoLoaded && video.video_file) {
+        <app-vjs-player [options]="{autoplay: true,  fluid: true, aspectRatio: '16:9', controls: true, sources: [{ src: video.video_file, type: 'video/mp4' }]}"></app-vjs-player>
+    }
+  
 </div>

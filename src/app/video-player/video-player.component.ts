@@ -1,14 +1,15 @@
 import { Component, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
 import { Video } from '../models/video.model';
 import { ActivatedRoute } from '@angular/router';
-import videojs from 'video.js';
+
 
 import { CommonModule } from '@angular/common';
+import { VjsPlayerComponent } from '../vjs-player/vjs-player.component';
 
 @Component({
   selector: 'app-video-player',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, VjsPlayerComponent],
   templateUrl: './video-player.component.html',
   styleUrl: './video-player.component.scss'
 })
@@ -17,8 +18,7 @@ export class VideoPlayerComponent {
   video!: Video;
   videoLoaded = false;
 
-  @ViewChild('videoPlayer', { static: true }) videoElement!: ElementRef<HTMLVideoElement>;
-  player!: any;
+ 
 
   constructor(private route: ActivatedRoute){}
 
@@ -26,22 +26,24 @@ export class VideoPlayerComponent {
     this.loadVideo();    
   }
 
-  ngAfterViewInit(): void {
-    this.player = videojs(this.videoElement.nativeElement, {
-      controls: true, // Enable video controls
-      autoplay: true, // Automatically play when loaded
-      fluid: true, // Responsive video sizing
-      preload: 'auto' // Preload the video
-    });
+  
+
+  // ngAfterViewInit(): void {
+  //   this.player = videojs(this.videoElement.nativeElement, {
+  //     controls: true, // Enable video controls
+  //     autoplay: true, // Automatically play when loaded
+  //     fluid: true, // Responsive video sizing
+  //     preload: 'auto' // Preload the video
+  //   });
 
     
-  }
+  // }
 
-  ngOnDestroy(): void {
-    if (this.player) {
-      this.player.dispose(); // Cleanup the player when component is destroyed
-    }
-  }
+  // ngOnDestroy(): void {
+  //   if (this.player) {
+  //     this.player.dispose(); // Cleanup the player when component is destroyed
+  //   }
+  // }
 
 
   async loadVideo(){
