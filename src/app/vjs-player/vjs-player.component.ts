@@ -13,6 +13,7 @@ import videojs from 'video.js';
 })
 export class VjsPlayerComponent {
     @ViewChild('target', {static: true}) target!: ElementRef;
+    @Input() videoTitle: string = '';
     @Input() options?: {
       fluid: boolean,
       aspectRatio: string,
@@ -40,7 +41,22 @@ export class VjsPlayerComponent {
     this.player = videojs(this.target.nativeElement, this.options, function onPlayerReady() {
       console.log('onPlayerReady', this);
     });
+    this.addTitleToControlBar();
   }
+
+  addTitleToControlBar() {
+    if (!this.player) return;
+
+    const controlBar = this.player.getChild('controlBar'); 
+
+    if (controlBar) {
+        const titleElement = document.createElement('div');
+        titleElement.className = 'vjs-video-title';
+        titleElement.innerText = this.videoTitle; 
+
+        controlBar.el().insertBefore(titleElement, controlBar.el().firstChild);
+    }
+}
 
 
   ngOnDestroy(){

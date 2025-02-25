@@ -1,5 +1,6 @@
 
 @import './../../../node_modules/video.js/dist/video-js.css';
+@import './../../styles.scss';
 
 
 
@@ -19,4 +20,39 @@
     width: 100% !important;
     height: 100% !important;
     object-fit: cover;
+}
+
+.video-js .vjs-control-bar {
+    height: 50px !important;  /* Increase control bar height */
+    background: rgba(0, 0, 0, 0.7) !important; /* Adjust transparency */
+    font-size: 16px;
+    @include displayFlex();
+    
+}
+
+.video-js .vjs-button {
+    width: 40px; /* Make buttons larger */
+}
+
+// .video-js .vjs-play-control {
+//     font-size: 20px;
+//     @include displayFlex();
+// }
+
+.video-js .vjs-progress-control {
+    // position: absolute;
+    // top: -2px; /* Move it above the control bar */
+    // left: 0;
+    // width: 100%;
+    height: 2px !important;  /* Thicker progress bar */
+}
+
+/* Custom styling for volume and progress bar */
+.video-js .vjs-progress-holder {
+    height: 4px !important;
+    width: 90%;
+}
+
+.video-js .vjs-volume-bar {
+    height: 10px !important;
 }
