@@ -18,6 +18,17 @@ header{
     }
 }
 
+.logo-small{
+    width: 32px;
+    height: 32px;
+    display: none;
+    transition: all 125ms ease;
+    &:hover{
+        cursor: pointer;
+        scale: 1.05;
+    }
+}
+
 .main-header{
     position: absolute;
     top: 0;
@@ -49,6 +60,11 @@ header{
 @media(max-width:600px){
     header{
         padding: 10px 16px;
-
+    }
+    .logo{
+        display: none;
+    }
+    .logo-small{
+        display: block;
     }
 }
