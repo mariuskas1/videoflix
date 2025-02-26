@@ -133,3 +133,23 @@
   .hidden{
     display: none;
   }
+
+  @media(max-width:600px){
+    .content{
+      width: 90%;
+      padding: 43px 24px;
+    }
+
+    .login-bottom{
+      >span{
+        font-size: 16px;
+        text-align: center;
+        line-height: 20px;
+      }
+
+      >a{
+        font-size: 18px;
+        text-align: center;
+      }
+    }
+  }
