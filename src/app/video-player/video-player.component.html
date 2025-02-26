@@ -1,9 +1,6 @@
 <div class="video-bg">
     @if (videoLoaded && video.video_file) {
-        <header>
-            
-        </header>
-
+        
         <app-vjs-player [options]="{autoplay: false,  fluid: true, aspectRatio: '16:9', controls: true, sources: [{ src: video.video_file, type: 'video/mp4' }]}"
         [videoTitle]="video.title"></app-vjs-player>
     }

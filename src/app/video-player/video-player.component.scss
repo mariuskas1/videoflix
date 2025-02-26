@@ -20,6 +20,12 @@ app-vjs-player {
     height: auto;
 }
 
+
+@media(max-width: 1600px){
+    app-vjs-player{
+        width: 100%;
+    }
+}
   
 
   
