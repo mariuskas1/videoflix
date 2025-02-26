@@ -84,6 +84,7 @@ h2{
 
 .category-div.genre{
     margin-top: 40px;
+   
 }
 
 .category-title{
@@ -109,6 +110,7 @@ h2{
 }
 
 .thumbnail-img{
+    flex-shrink: 0;
     width: 213px;
     height: 120px;
     transition: all 125ms ease;
@@ -127,4 +129,24 @@ h2{
     background-color: rgba(20, 20, 20, 1);
     position: relative;
     padding-bottom: 104px;
+    @include displayFlex($fd: column);
+}
+
+
+@media(max-width: 900px){
+    .video-info-wrapper, .category-div{
+        padding-left: 40px;
+    }
+}
+@media(max-width: 600px){
+    .video-info-wrapper, .category-div{
+        padding-left: 16px;
+    }
+
+    .video-info{
+        width: 90%;
+    }
+    h2{
+        font-size: 64px;
+    }
 }

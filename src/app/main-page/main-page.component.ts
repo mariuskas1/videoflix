@@ -40,7 +40,7 @@ export class MainPageComponent {
 
 
   initVideoSubscription(){
-    this.getVideos().pipe(takeUntil(this.unsubscribe$)).subscribe({
+    this.videosObservable().pipe(takeUntil(this.unsubscribe$)).subscribe({
       next: (data) => {
         this.videos = data;
         this.sortVideos();
@@ -64,12 +64,10 @@ export class MainPageComponent {
 
       this.sortedVideos[categoryKey].push(video);
     });
-
-    console.log(this.sortedVideos);
   }
 
 
-  getVideos(): Observable<Video[]>{
+  videosObservable(): Observable<Video[]>{
     return this.http.get<Video[]>(this.videosURL);
   }
 

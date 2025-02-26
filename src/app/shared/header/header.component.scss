@@ -18,6 +18,15 @@ header{
     }
 }
 
+.logo-main{
+   
+    transition: all 125ms ease;
+    &:hover{
+        cursor: pointer;
+        scale: 1.05;
+    }
+}
+
 .logo-small{
     width: 32px;
     height: 32px;
