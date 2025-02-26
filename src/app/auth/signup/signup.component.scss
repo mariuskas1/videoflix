@@ -79,3 +79,10 @@
   .invalid-input-img{
     filter: invert(13%) sepia(84%) saturate(4903%) hue-rotate(342deg) brightness(106%) contrast(115%);
   }
+
+  @media(max-width:600px){
+    .content{
+      width: 90%;
+      padding: 43px 24px;
+    }
+  }
