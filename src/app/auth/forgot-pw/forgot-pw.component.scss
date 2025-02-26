@@ -74,3 +74,19 @@ h1 {
         color: #ff002e;
     }
   }
+
+
+  @media(max-width:600px){
+    h1{
+        font-size: 40px;
+        line-height: 40px;
+    }
+    .content{
+      width: 90%;
+      padding: 43px 24px;
+    }
+
+    input{
+        margin-top: 8px;
+    }
+  }
