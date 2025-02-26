@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { HeaderComponent } from '../shared/header/header.component';
 import { Video } from '../models/video.model';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -22,6 +22,14 @@ export class MainPageComponent {
   newVideos: Video[] = [];
   sortedVideos: { [key: string]: Video[] } = {};
   private unsubscribe$ = new Subject<void>();
+
+  activeRow: HTMLElement | null = null;
+  isMouseDown = false
+  isDragging = false;
+  dragThreshold = 10;
+  dragTimeout: any = null;
+  startX!: number;
+  scrollLeft!: number;
 
   constructor(private http: HttpClient, private router: Router){}
 
@@ -71,15 +79,57 @@ export class MainPageComponent {
   }
 
 
-  playVideo(id: number){
-    this.router.navigate(['/play', id]);
+  playVideo(id: number, event: MouseEvent) {
+    if (this.isDragging) {
+      event.stopImmediatePropagation(); 
+      return;
+    }
+    this.router.navigate(['/play', id]); 
   }
 
+  startDrag(event: MouseEvent, row: EventTarget | null) {
+    if(!(row instanceof HTMLElement)) return;
+
+    this.isMouseDown = true;  
+    this.isDragging = false;  
+    this.startX = event.pageX;
+    this.scrollLeft = row.scrollLeft;
+    this.activeRow = row;
+  }
+
+  drag(event: MouseEvent) {
+    if (!this.isMouseDown || !this.activeRow) return; 
+
+    const distanceMoved = Math.abs(event.pageX - this.startX);
+    
+    if (distanceMoved > this.dragThreshold) {
+      this.isDragging = true;
+    }
+
+    if (this.isDragging) {
+      event.preventDefault();
+      this.activeRow.scrollLeft = this.scrollLeft - (event.pageX - this.startX);
+    }
+  }
+
+
+  endDrag() {
+    this.isMouseDown = false; 
+    this.isDragging = false;
+  }
+
+  onMouseUpForImage(event: MouseEvent) {
+    if (this.isDragging) {
+      this.isMouseDown = false;
+      event.stopImmediatePropagation(); 
+    }
+  }
 
 
   ngOnDestroy(): void {
     this.unsubscribe$.next();  
     this.unsubscribe$.complete(); 
+
   }
 
 

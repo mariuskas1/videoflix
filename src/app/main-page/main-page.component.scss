@@ -94,16 +94,25 @@ h2{
 }
 
 .thumbnail-row{
+    display: flex;
     width: 100%;
-    overflow: hidden;
-    
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 16px;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.thumbnail-row::-webkit-scrollbar {
+    display: none; 
 }
 
 .thumbnail-img{
     width: 213px;
     height: 120px;
-    margin-right: 16px;
     transition: all 125ms ease;
+    -webkit-user-drag: none;
 
     &:hover{
         cursor: pointer;

@@ -17,9 +17,9 @@
     
     <div class="category-div new">
         <span class="category-title">New on Videoflix</span>
-        <div class="thumbnail-row">
+        <div class="thumbnail-row" #thumbnailRow (mousedown)="startDrag($event, $event.currentTarget)" (mousemove)="drag($event)" (mouseup)="endDrag()" (mouseleave)="endDrag()">
             @for (video of newVideos; track $index) {
-                <img [src]= "video.thumbnail" class="thumbnail-img" (click)="playVideo(video.id)">
+                <img [src]= "video.thumbnail" class="thumbnail-img" (click)="playVideo(video.id, $event)" (mouseup)="onMouseUpForImage($event)">
             }
         </div>
     </div>
@@ -30,9 +30,9 @@
     @for (genreKey of getVideoGenres(); track $index) {
         <div class="category-div genre">
             <span class="category-title">{{ genreKey }}</span>
-            <div class="thumbnail-row">
+            <div class="thumbnail-row" #thumbnailRow (mousedown)="startDrag($event, $event.currentTarget)" (mousemove)="drag($event)" (mouseup)="endDrag()" (mouseleave)="endDrag()">
                 @for (video of sortedVideos[genreKey]; track $index) {
-                    <img [src]= "video.thumbnail" class="thumbnail-img" (click)="playVideo(video.id)">
+                    <img [src]= "video.thumbnail" class="thumbnail-img" (click)="playVideo(video.id, $event)" (mouseup)="onMouseUpForImage($event)">
                 }
             </div>
         </div>
