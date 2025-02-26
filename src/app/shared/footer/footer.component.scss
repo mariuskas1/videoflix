@@ -31,3 +31,10 @@ footer{
         scale: 1.02;
     }
 }
+
+
+@media(max-width: 800px){
+    .main-footer{
+        padding-right: 32px;
+    }
+}
