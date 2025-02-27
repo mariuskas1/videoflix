@@ -12,7 +12,7 @@
 
 }
 
-.max-width-container{
+.max-width-container.main{
     position: relative;
     height: 100%;
     @include displayFlex();
