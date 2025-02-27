@@ -4,10 +4,24 @@
     height: 100dvh;
     width: 100%;
     @include displayFlex();
+    background-color: rgba(20, 20, 20, 1);
     position: relative;
     overflow: hidden;
+    // border: 1px solid red;
     // background: linear-gradient(180deg, rgba(20, 20, 20, 0.6) 0%, rgba(20, 20, 20, 0) 50%, #141414 100%);
 
+}
+
+.max-width-container{
+    position: relative;
+    height: 100%;
+    @include displayFlex();
+}
+
+app-footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 video{
@@ -75,6 +89,8 @@ h2{
     overflow: hidden;
     z-index: 100;
 }
+
+
 
 .category-div.new{
     position: absolute;

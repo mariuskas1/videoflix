@@ -1,21 +1,39 @@
 @import './../../../styles.scss';
 
+:host{
+    width: 100%;
+    @include displayFlex();
+}
 
 footer{
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
+    
+     @include displayFlex();
+    
     height: 108px;
     @include displayFlex();
     gap: 48px;
+}
+
+.max-width-container{
+    
+    position: relative;
+}
+
+.max-width-container.main-footer{
+    justify-content: flex-end;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 50%);
+
 }
 
 .main-footer{
     position: absolute;
     bottom: 0;
     left: 0;
-    justify-content: flex-end;
+    @include displayFlex($jc:flex-end);
     padding-right: 80px;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.9) 50%);
 

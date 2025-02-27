@@ -1,17 +1,20 @@
 <header [ngClass]="{ 'main-header': usecase === 'main' }">
-    @if(usecase !=='main'){
-        <img src="./../../assets/img/Logo.png" class="logo">
-        <img src="./../../../assets/img/logo_small.png" class="logo-small">
-    }@else {
-        <img src="./../../../assets/img/logo_small.png" class="logo-main">
-    }
-    
-    @if(usecase !== 'main' && usecase !== 'policy'){
-        <a href="login" class="btn" [ngClass]="{'hidden': usecase === 'login'}">Log In</a>
-    }@else if (usecase === 'policy') {
-        <img src="./../../../assets/img/arrow_back.png" class="return-arrow" (click)="redirect()">
-    }@else {
-        <button class="btn" (click)="logOut()"><img src="./../../../assets/img/logout.png" class="logout-icon">Log Out</button>
-    }
-    
+    <div class="max-width-container">
+
+   
+        @if(usecase !=='main'){
+            <img src="./../../assets/img/Logo.png" class="logo">
+            <img src="./../../../assets/img/logo_small.png" class="logo-small">
+        }@else {
+            <img src="./../../../assets/img/logo_small.png" class="logo-main">
+        }
+        
+        @if(usecase !== 'main' && usecase !== 'policy'){
+            <a href="login" class="btn" [ngClass]="{'hidden': usecase === 'login'}">Log In</a>
+        }@else if (usecase === 'policy') {
+            <img src="./../../../assets/img/arrow_back.png" class="return-arrow" (click)="redirect()">
+        }@else {
+            <button class="btn" (click)="logOut()"><img src="./../../../assets/img/logout.png" class="logout-icon">Log Out</button>
+        }
+    </div>
 </header>
