@@ -2,8 +2,8 @@
 
 .landing-page-bg{
     height: 100dvh;
-    width: 100vw;
-    @include displayFlex();
+    width: 100%;
+    @include displayFlex($fd:column, $jc: space-between);
     background: 
         linear-gradient(180deg, #000000 -9.91%, rgba(0, 0, 0, 0.55) 54.3%, #000000 98.36%),
         url('./../../assets/img/landing-page-bg.jpeg');

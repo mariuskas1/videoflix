@@ -33,9 +33,9 @@ export class LandingPageComponent {
 
 
   checkUserInput(){
-    if(this.userInput?.length > 1){
-      this.router.navigate(['/signup']);
-    }
+    //save user input to service ?
+    this.router.navigate(['/signup']);
+    
   }
 
 
