@@ -1,6 +1,14 @@
 @import './../../../styles.scss';
 
+:host {
+    position: fixed;
+    left: 24px;
+    bottom: 40px;
+    display: block;
+}
+
 .toast-container{
+    transform: translate(-200%);
     width: 540px;
     height: 80px;
     padding: 24px 32px;
@@ -9,6 +17,11 @@
     background-color: rgba(46, 62, 223, 1);
     color: white;
     position: relative;
+    transition: all 200ms ease;
+
+    &.show{
+        transform: translateX(0);
+    }
 }
 
 .red-border{

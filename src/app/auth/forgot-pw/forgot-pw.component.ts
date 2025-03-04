@@ -14,10 +14,13 @@ import { ToastComponent } from '../../shared/toast/toast.component';
 })
 export class ForgotPwComponent {
   email = '';
-
+  showToastMessage = false;
 
   onSubmit(ngForm: NgForm){
-    //reset password
+    this.showToastMessage = true;
+    setTimeout(() => {
+      this.showToastMessage = false;
+    }, 3000)
   }
 
 }
