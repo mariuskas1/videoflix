@@ -1,0 +1,41 @@
+@import './../../../styles.scss';
+
+.toast-container{
+    width: 540px;
+    height: 80px;
+    padding: 24px 32px;
+    border-radius: 20px;
+    @include displayFlex($jc: flex-start);
+    background-color: rgba(46, 62, 223, 1);
+    color: white;
+    position: relative;
+}
+
+.red-border{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 24px;
+    background-color: rgba(255, 0, 46, 1);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.exclamation-icon{
+    width: 32px;
+    height: 32px;
+}
+
+.toast-msg{
+    font-size: 16px;
+    margin-left: 8px;
+    flex: 1;
+}
+
+.white-border{
+    height: 32px;
+    width: 0px;
+    border: 1px solid white;
+    margin-right: 16px;
+}

@@ -4,7 +4,6 @@
     <div class="content">
         <h1>Forgot your <br> password?</h1>
         
-        
         <form (ngSubmit)="onSubmit(signupForm)" #signupForm="ngForm">
             <span>We will send you an email with instructions to reset your password.</span>
             <input type="text" placeholder="Email Address" [(ngModel)]="email" required email name="email" #emailInput="ngModel"
@@ -16,13 +15,13 @@
                     <span>Please enter a valid email address.</span>
                 </div>
             }
-            
-
             <button class="btn" type="submit" [disabled]="email.length < 3">Send Email</button>
-
         </form>
         
     </div>
 
+    <app-toast></app-toast>
+
     <app-footer [usecase]="'login'"></app-footer>
 </div>
+
