@@ -15,9 +15,13 @@ import { ToastComponent } from '../../shared/toast/toast.component';
 export class ForgotPwComponent {
   email = '';
   showToastMessage = false;
+  toastMessage = '';
 
   onSubmit(ngForm: NgForm){
+    this.toastMessage = 'A mail with further instructions has been sent to your address.'
     this.showToastMessage = true;
+    ngForm.resetForm({ email: ''})
+
     setTimeout(() => {
       this.showToastMessage = false;
     }, 3000)

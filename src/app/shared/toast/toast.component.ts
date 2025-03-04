@@ -12,5 +12,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ToastComponent {
   @Input() show = false;
+  @Input() message = '';
 
 }
+
