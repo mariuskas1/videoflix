@@ -22,11 +22,11 @@ export class ActivateAccountComponent {
   ) {}
 
   ngOnInit() {
-    const uid = this.route.snapshot.paramMap.get('uid');
+    const uidb64 = this.route.snapshot.paramMap.get('uidb64');
     const token = this.route.snapshot.paramMap.get('token');
 
-    if (uid && token) {
-      this.authService.activateAccount(uid, token).subscribe({
+    if (uidb64 && token) {
+      this.authService.activateAccount(uidb64, token).subscribe({
         next: () => {
           this.message = 'Account activated successfully! Redirecting...';
           setTimeout(() => this.router.navigate(['/login']), 3000); 

@@ -19,6 +19,6 @@ export const routes: Routes = [
     { path: 'imprint', component: ImprintComponent },
     { path: 'main', component: MainPageComponent, canActivate: [authGuard] },
     { path: 'play/:id', component: VideoPlayerComponent, canActivate: [authGuard] },
-    { path: 'activate/:uid/:token', component: ActivateAccountComponent},
+    { path: 'activate/:uidb64/:token', component: ActivateAccountComponent},
     { path: 'activate', component: ActivateAccountComponent},
 ];
