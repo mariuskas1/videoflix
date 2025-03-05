@@ -110,7 +110,7 @@ export class LoginComponent {
       this.loginFailed = true;
       setTimeout(()=> {
         this.loginFailed = false;
-      }, 2000);
+      }, 3000);
     }
 
   }
