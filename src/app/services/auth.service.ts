@@ -29,4 +29,8 @@ export class AuthService {
     const user = JSON.parse(localStorage.getItem('vfUserData') || '{}');
     return user.token || null;
   }
+
+  activateAccount(uid: string, token: string) {
+    return this.http.get(`http://localhost:8000/api/activate/${uid}/${token}/`);
+  }
 }
