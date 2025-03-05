@@ -4,13 +4,14 @@ import { FooterComponent } from '../../shared/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { ToastComponent } from '../../shared/toast/toast.component';
 
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, FormsModule, CommonModule],
+  imports: [HeaderComponent, FooterComponent, FormsModule, CommonModule, ToastComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -18,6 +19,9 @@ export class LoginComponent {
   showPassword = false;
   loginFailed = false;
   rememberUser = false;
+
+  showToastMessage = false;
+  toastMessage = 'Your account has not yet been activated. Please check your inbox and click on the activation link.'
 
   loginURL = 'http://127.0.0.1:8000/api/login/';
 
@@ -64,7 +68,7 @@ export class LoginComponent {
       if(response.ok && responseData.token){
         this.handleSuccesfulLogin(responseData);
       } else{
-        this.handleFailedLogin();
+        this.handleFailedLogin(responseData);
       }
     } catch (error) {
       console.error(error);
@@ -96,11 +100,19 @@ export class LoginComponent {
     this.router.navigate(['/main']);
   }
 
-  handleFailedLogin(){
-    this.loginFailed = true;
-    setTimeout(()=> {
-      this.loginFailed = false;
-    }, 2000);
+  handleFailedLogin(responseData:any){
+    if(responseData["non_field_errors"] && responseData["non_field_errors"].includes("Account not activated.")){
+      this.showToastMessage = true;
+      setTimeout(() => {
+        this.showToastMessage = false
+      }, 5000);
+    } else {
+      this.loginFailed = true;
+      setTimeout(()=> {
+        this.loginFailed = false;
+      }, 2000);
+    }
+
   }
 
 
