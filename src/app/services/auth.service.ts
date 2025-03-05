@@ -33,4 +33,8 @@ export class AuthService {
   activateAccount(uid: string, token: string) {
     return this.http.get(`http://localhost:8000/api/activate/${uid}/${token}/`);
   }
+
+  resetPassword(email: string) {
+    return this.http.post('http://localhost:8000/api/password-reset/', { email });
+  }
 }
