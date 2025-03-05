@@ -1,0 +1,33 @@
+@import './../../../styles.scss';
+
+.activate-bg{
+    height: 100dvh;
+    width: 100vw;
+    @include displayFlex($fd:column, $jc: space-between);
+    
+    background: 
+        linear-gradient(180deg, rgba(0, 0, 0, 0.8) -27.44%, rgba(0, 0, 0, 0.44) 44.23%, rgba(0, 0, 0, 0.8) 100%),
+        url('./../../../assets/img/sign-up-bg.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.content{
+    height: 380px;
+    width: 540px;
+    background-color: white;
+    border-radius: 48px;
+    @include displayFlex($fd:column, $jc:flex-start);
+    padding: 43px 56px;
+
+}
+
+.msg{
+    font-size: 21px;
+    font-weight: 500;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+

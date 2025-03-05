@@ -8,6 +8,7 @@ import { VideoPlayerComponent } from './video-player/video-player.component';
 import { authGuard } from './auth/guards/auth.guard';
 import { PrivacyPolicyComponent } from './policy/privacy-policy/privacy-policy.component';
 import { ImprintComponent } from './policy/imprint/imprint.component';
+import { ActivateAccountComponent } from './auth/activate-account/activate-account.component';
 
 export const routes: Routes = [
     { path: '', component: LandingPageComponent },
@@ -18,4 +19,6 @@ export const routes: Routes = [
     { path: 'imprint', component: ImprintComponent },
     { path: 'main', component: MainPageComponent, canActivate: [authGuard] },
     { path: 'play/:id', component: VideoPlayerComponent, canActivate: [authGuard] },
+    { path: 'activate/:uid/:token', component: ActivateAccountComponent},
+    { path: 'activate', component: ActivateAccountComponent},
 ];
