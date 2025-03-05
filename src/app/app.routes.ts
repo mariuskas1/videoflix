@@ -9,6 +9,7 @@ import { authGuard } from './auth/guards/auth.guard';
 import { PrivacyPolicyComponent } from './policy/privacy-policy/privacy-policy.component';
 import { ImprintComponent } from './policy/imprint/imprint.component';
 import { ActivateAccountComponent } from './auth/activate-account/activate-account.component';
+import { ResetPwComponent } from './auth/reset-pw/reset-pw.component';
 
 export const routes: Routes = [
     { path: '', component: LandingPageComponent },
@@ -21,4 +22,6 @@ export const routes: Routes = [
     { path: 'play/:id', component: VideoPlayerComponent, canActivate: [authGuard] },
     { path: 'activate/:uidb64/:token', component: ActivateAccountComponent},
     { path: 'activate', component: ActivateAccountComponent},
+    { path: 'reset-password/:uidb64/:token', component: ResetPwComponent},
+    { path: 'reset-password', component: ResetPwComponent},
 ];
