@@ -4,11 +4,12 @@ import { FooterComponent } from '../../shared/footer/footer.component';
 import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { ToastComponent } from '../../shared/toast/toast.component';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, FormsModule, CommonModule],
+  imports: [HeaderComponent, FooterComponent, FormsModule, CommonModule, ToastComponent],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss'
 })
@@ -19,6 +20,8 @@ export class SignupComponent {
   pwsTooShort = false;
 
   signupSuccessful = false;
+  showToastMessage = false;
+  toastMessage = 'Sign-up successful! A mail with an activation link has been sent. Please check your inbox to activate your account.'
 
   signupURL = 'http://127.0.0.1:8000/api/registration/';
 
@@ -49,6 +52,11 @@ export class SignupComponent {
 
     if(ngForm.valid){
       this.signUp();
+      ngForm.resetForm({ email: '', password: '', repeated_pw: ''});
+      setTimeout(() => {
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => input.blur());
+      }, 10);
     }
   }
 
@@ -76,10 +84,12 @@ export class SignupComponent {
 
   handleSuccessfulSignup(){
     this.signupSuccessful = true;
+    this.showToastMessage = true;
     setTimeout(() => {
       this.signupSuccessful = false;
+      this.showToastMessage = false;
       this.router.navigate(['/login']);
-    }, 2000)
+    }, 5000)
   }
 
 
