@@ -1,0 +1,92 @@
+@import './../../../styles.scss';
+
+.forgot-pw-bg{
+    height: 100dvh;
+    width: 100vw;
+    @include displayFlex($fd:column, $jc: space-between);
+    
+    background: 
+        linear-gradient(180deg, rgba(0, 0, 0, 0.8) -27.44%, rgba(0, 0, 0, 0.44) 44.23%, rgba(0, 0, 0, 0.8) 100%),
+        url('./../../../assets/img/login-bg.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+.content{
+    height: 492px;
+    width: 520px;
+    background-color: white;
+    border-radius: 48px;
+    @include displayFlex($fd:column, $jc:space-between);
+    padding: 43px 56px;
+
+    >form{
+        height: 100%;
+        width: 100%;
+        @include displayFlex($fd:column, $jc:space-between);
+        margin-top: 32px;
+        position: relative;
+
+    }
+}
+
+.pw-input-container{
+    position: relative;
+    width: 100%;
+  }
+
+  .visibility-icon{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-40%);
+    right: 24px;
+    
+    &:hover{
+        cursor: pointer;
+        scale: 1.02;
+    }
+  }
+
+  .error-div{
+    position: absolute;
+    bottom: 64px;
+    left: 8px;
+    font-size: 15px;
+    color: rgba(255, 0, 46, 1);
+    width: 100%;
+    @include displayFlex($jc:flex-start);
+
+    >img{
+        margin-right: 4px;
+    }
+  }
+
+  .hidden{
+    display: none;
+  }
+
+  .invalid-input{
+    border: 1px solid rgba(255, 0, 46, 1);
+    color: #ff002e;
+
+    &::placeholder{
+        color: #ff002e;
+    }
+  }
+
+  .invalid-input-img{
+    filter: invert(13%) sepia(84%) saturate(4903%) hue-rotate(342deg) brightness(106%) contrast(115%);
+  }
+
+  @media(max-width:600px){
+    .content{
+      width: 90%;
+      padding: 43px 24px;
+    }
+  }
+
+  h1{
+    text-align: center;
+  }
