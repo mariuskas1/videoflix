@@ -2,7 +2,7 @@
     <app-header></app-header>
 
     <div class="content">
-        <h1>Reset your Password</h1>
+        <h1>Password Reset</h1>
         
         <form (ngSubmit)="onSubmit(signupForm)" #signupForm="ngForm">
             <input type="text" placeholder="Confirm Email Address" [(ngModel)]="resetData.email" required email name="email" #emailInput="ngModel"
