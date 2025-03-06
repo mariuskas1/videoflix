@@ -5,7 +5,7 @@ import { ToastComponent } from '../../shared/toast/toast.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-reset-pw',
@@ -16,7 +16,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ResetPwComponent {
   showToastMessage = false;
-  toastMessage = 'Your password has been successfully reset.';
+  toastMessage = 'Your password has been successfully reset. You can now log in using your new password.';
 
   showPassword1 = false;
   showPassword2 = false;
@@ -29,11 +29,11 @@ export class ResetPwComponent {
     repeated_password : ''
   }
 
-  uidb64 = this.route.snapshot.paramMap.get('uidb64');;
+  uidb64 = this.route.snapshot.paramMap.get('uidb64');
   token = this.route.snapshot.paramMap.get('token');
   resetPwUrl = ''
 
-  constructor(private authService: AuthService, private route: ActivatedRoute){}
+  constructor(private authService: AuthService, private route: ActivatedRoute, private router: Router){}
 
 
   ngOnInit(){
@@ -85,12 +85,33 @@ export class ResetPwComponent {
         throw new Error(data.error || "Something went wrong");
       }
   
-      console.log("Password reset successful:", data.message);
+      this.handleSuccessfulPwReset();
     } catch (error) {
-      console.error("Password reset failed:", error);
+      this.handleFailedPwReset(error);
     }
   }
 
+
+  handleSuccessfulPwReset(){
+    this.showToastMessage = true;
+    setTimeout(() => {
+      this.showToastMessage = false;
+      this.router.navigate(['/login']);
+    }, 3000)
+  }
+
+  handleFailedPwReset(error: any){
+    if (error instanceof Error) {
+      this.toastMessage = error.message;
+    } else {
+      this.toastMessage = "An unexpected error occurred. Please try again.";
+    }
+
+    this.showToastMessage = true;
+    setTimeout(() => {
+      this.showToastMessage = false;
+    }, 3000)
+  }
 
 
   checkPasswords(){
