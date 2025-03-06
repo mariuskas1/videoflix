@@ -34,6 +34,17 @@ export class SignupComponent {
   
   constructor(private router: Router) {}
 
+  ngOnInit(){
+    this.checkForMailInput();
+  }
+
+  checkForMailInput(){
+    const savedMail = sessionStorage.getItem('vf_signup_mail')
+    if(savedMail){
+      this.signupData.email = savedMail;
+    }
+  }
+
 
   togglePassword1Visibility(){
     this.showPassword1 = !this.showPassword1;
