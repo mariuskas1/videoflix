@@ -37,4 +37,6 @@ export class AuthService {
   resetPassword(email: string) {
     return this.http.post('http://localhost:8000/api/password-reset/', { email });
   }
+
+  
 }

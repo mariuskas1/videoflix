@@ -5,17 +5,17 @@
         <h1>Reset your Password</h1>
         
         <form (ngSubmit)="onSubmit(signupForm)" #signupForm="ngForm">
-            <input type="text" placeholder="Email Address" [(ngModel)]="signupData.email" required email name="email" #emailInput="ngModel"
+            <input type="text" placeholder="Confirm Email Address" [(ngModel)]="resetData.email" required email name="email" #emailInput="ngModel"
                 [ngClass]="{ 'invalid-input': signupForm.submitted && emailInput.invalid}" >
             <div class="pw-input-container">
-                <input [type]="showPassword1 ? 'text' : 'password'" placeholder="New Password" [(ngModel)]="signupData.password" 
+                <input [type]="showPassword1 ? 'text' : 'password'" placeholder="New Password" [(ngModel)]="resetData.password" 
                     [ngClass]="{ 'invalid-input': pwsTooShort || pwsDontMatch }" 
                     required minlength="6" name="password">
                 <img [src]="showPassword1 ? './../../../assets/img/visibility_off.png' : './../../../assets/img/visibility.png'"  
                     class="visibility-icon" (click)="togglePassword1Visibility()" [ngClass]="{ 'invalid-input-img': pwsTooShort || pwsDontMatch }">
             </div>
             <div class="pw-input-container">
-                <input [type]="showPassword2 ? 'text' : 'password'" placeholder="Confirm Password" [(ngModel)]="signupData.repeated_password" 
+                <input [type]="showPassword2 ? 'text' : 'password'" placeholder="Confirm Password" [(ngModel)]="resetData.repeated_password" 
                     [ngClass]="{ 'invalid-input': pwsTooShort || pwsDontMatch }"
                     required minlength="6" name="repeated_pw">
                 <img [src]="showPassword2 ? './../../../assets/img/visibility_off.png' : './../../../assets/img/visibility.png'"  
