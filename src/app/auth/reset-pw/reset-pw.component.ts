@@ -16,7 +16,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ResetPwComponent {
   showToastMessage = false;
-  toastMessage = 'Your password has been successfully reset. You can now log in using your new password.';
+  toastMessage = '';
 
   showPassword1 = false;
   showPassword2 = false;
@@ -93,6 +93,7 @@ export class ResetPwComponent {
 
 
   handleSuccessfulPwReset(){
+    this.toastMessage = 'Your password has been successfully reset. You can now log in using your new password.'
     this.showToastMessage = true;
     setTimeout(() => {
       this.showToastMessage = false;
