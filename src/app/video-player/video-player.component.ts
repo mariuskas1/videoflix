@@ -14,7 +14,7 @@ import { VjsPlayerComponent } from '../vjs-player/vjs-player.component';
   styleUrl: './video-player.component.scss'
 })
 export class VideoPlayerComponent {
-  BASE_URL = 'http://127.0.0.1:8000/api/videos';
+  BASE_URL = 'https://marius-kasparek.developerakademie.org/videoflix_server/api/videos';
   video!: Video;
   videoLoaded = false;
 

@@ -17,7 +17,7 @@ import { Router } from '@angular/router';
   styleUrl: './main-page.component.scss'
 })
 export class MainPageComponent {
-  videosURL = 'http://127.0.0.1:8000/api/videos/';
+  videosURL = 'https://marius-kasparek.developerakademie.org/videoflix_server/api/videos/';
   videos: Video[] = [];
   newVideos: Video[] = [];
   sortedVideos: { [key: string]: Video[] } = {};

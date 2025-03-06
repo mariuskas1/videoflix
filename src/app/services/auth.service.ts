@@ -8,7 +8,7 @@ import { map, catchError } from 'rxjs/operators';
 })
 export class AuthService {
 
-  private tokenValidationUrl = 'http://127.0.0.1:8000/api/token/validate/'
+  private tokenValidationUrl = 'https://marius-kasparek.developerakademie.org/videoflix_server/api/token/validate/'
 
   constructor(private http: HttpClient) { }
 
@@ -31,11 +31,11 @@ export class AuthService {
   }
 
   activateAccount(uid: string, token: string) {
-    return this.http.get(`http://localhost:8000/api/activate/${uid}/${token}/`);
+    return this.http.get(`https://marius-kasparek.developerakademie.org/videoflix_server/api/activate/${uid}/${token}/`);
   }
 
   resetPassword(email: string) {
-    return this.http.post('http://localhost:8000/api/password-reset/', { email });
+    return this.http.post('https://marius-kasparek.developerakademie.org/videoflix_server/api/password-reset/', { email });
   }
 
   

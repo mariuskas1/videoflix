@@ -23,7 +23,7 @@ export class SignupComponent {
   showToastMessage = false;
   toastMessage = 'Sign-up successful! A mail with an activation link has been sent. Please check your inbox to activate your account.'
 
-  signupURL = 'http://127.0.0.1:8000/api/registration/';
+  signupURL = 'https://marius-kasparek.developerakademie.org/videoflix_server/api/registration/';
 
   signupData = {
     email : '',

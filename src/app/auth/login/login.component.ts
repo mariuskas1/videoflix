@@ -23,7 +23,7 @@ export class LoginComponent {
   showToastMessage = false;
   toastMessage = 'Your account has not yet been activated. Please check your inbox and click on the activation link.'
 
-  loginURL = 'http://127.0.0.1:8000/api/login/';
+  loginURL = 'https://marius-kasparek.developerakademie.org/videoflix_server/api/login/';
 
   loginData = {
     email: '',
