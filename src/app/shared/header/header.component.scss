@@ -66,13 +66,13 @@ header{
 
 
 @media(max-width:900px){
-    header{
+    .max-width-container{
         padding: 10px 40px;
 
     }
 }
 @media(max-width:600px){
-    header{
+    .max-width-container{
         padding: 10px 16px;
     }
     .logo{

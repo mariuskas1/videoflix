@@ -42,6 +42,7 @@ export class SignupComponent {
     const savedMail = sessionStorage.getItem('vf_signup_mail')
     if(savedMail){
       this.signupData.email = savedMail;
+      sessionStorage.removeItem('vf_signup_mail');
     }
   }
 

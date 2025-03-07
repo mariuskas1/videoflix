@@ -13,7 +13,7 @@
                     to break out and prove his innocence. He must navigate a web of alliances and betrayals to reclaim his freedom and 
                     expose the truth.
                 </span>
-                <button class="btn"><img src="./../../assets/img/play_arrow.png" alt=""> Play</button>
+                <button class="btn"><img src="./../../assets/img/play_arrow.png"  (click)="playVideo(8, $event)"> Play</button>
             </div>
         </div>
         
@@ -34,6 +34,14 @@
 <div class="video-content-bg">
     <div class="max-width-container">
 
+        <div class="category-div new-mobile">
+            <span class="category-title">New on Videoflix</span>
+            <div class="thumbnail-row" #thumbnailRow (mousedown)="startDrag($event, $event.currentTarget)" (mousemove)="drag($event)" (mouseup)="endDrag()" (mouseleave)="endDrag()">
+                @for (video of newVideos; track $index) {
+                    <img [src]= "video.thumbnail" class="thumbnail-img" (click)="playVideo(video.id, $event)" (mouseup)="onMouseUpForImage($event)">
+                }
+            </div>
+        </div>
     
         @for (genreKey of getVideoGenres(); track $index) {
             <div class="category-div genre">

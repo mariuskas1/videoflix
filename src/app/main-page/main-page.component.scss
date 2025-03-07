@@ -99,6 +99,10 @@ h2{
     bottom: 32px;
 }
 
+.category-div.new-mobile{
+    display: none;
+}
+
 .category-div.genre{
     margin-top: 40px;
    
@@ -166,4 +170,23 @@ h2{
     h2{
         font-size: 64px;
     }
+}
+
+@media(max-width: 440px) and (max-height: 940px){
+    .category-div.new{
+        display: none;
+    }
+
+    .category-div.new-mobile{
+        display: block;
+    }
+
+    .max-width-container.main{
+        align-items: flex-end;
+    }
+
+    .video-info-wrapper{
+        margin-bottom: 64px;
+    }
+
 }

@@ -64,6 +64,7 @@ export class MainPageComponent {
 
       this.sortedVideos[categoryKey].push(video);
     });
+   
   }
 
 
@@ -78,6 +79,7 @@ export class MainPageComponent {
 
 
   playVideo(id: number, event: MouseEvent) {
+    console.log(id);
     if (this.isDragging) {
       event.stopImmediatePropagation(); 
       return;
