@@ -55,7 +55,6 @@ export class VideoPlayerComponent {
         if(response.ok){
           this.video = await response.json();
           this.videoLoaded = true;
-          console.log("Fetched video:", this.video);
         }
       } catch (error) {
         console.error(error);

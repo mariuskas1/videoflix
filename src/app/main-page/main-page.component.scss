@@ -89,6 +89,10 @@ h2{
     @include displayFlex($fd:column, $ai: flex-start);
     overflow: hidden;
     z-index: 100;
+
+    &:hover{
+        cursor: pointer;
+    }
 }
 
 .play{
