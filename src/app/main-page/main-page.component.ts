@@ -77,9 +77,8 @@ export class MainPageComponent {
     return Object.keys(this.sortedVideos);
   }
 
-
+  
   playVideo(id: number, event: MouseEvent) {
-    console.log(id);
     if (this.isDragging) {
       event.stopImmediatePropagation(); 
       return;
