@@ -41,7 +41,7 @@ export class ResetPwComponent {
     if(this.uidb64 && this.token){
       console.log(this.uidb64);
       console.log(this.token);
-      this.resetPwUrl = `http://localhost:8000/api/pw-reset-confirm/${this.uidb64}/${this.token}/`;
+      this.resetPwUrl = `https://marius-kasparek.developerakademie.org/videoflix_server/api/pw-reset-confirm/${this.uidb64}/${this.token}/`;
     }
   }
 

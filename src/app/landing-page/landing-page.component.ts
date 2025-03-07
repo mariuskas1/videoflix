@@ -15,7 +15,7 @@ import { ToastComponent } from '../shared/toast/toast.component';
 })
 export class LandingPageComponent {
   userInput:string = '';
-  mailEndpointUrl = 'http://localhost:8000/api/check-email/';
+  mailEndpointUrl = 'https://marius-kasparek.developerakademie.org/videoflix_server/api/check-email/';
   showToastMessage = false;
   toastMessage = '';
 
