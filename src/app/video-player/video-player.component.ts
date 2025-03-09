@@ -28,22 +28,6 @@ export class VideoPlayerComponent {
 
   
 
-  // ngAfterViewInit(): void {
-  //   this.player = videojs(this.videoElement.nativeElement, {
-  //     controls: true, // Enable video controls
-  //     autoplay: true, // Automatically play when loaded
-  //     fluid: true, // Responsive video sizing
-  //     preload: 'auto' // Preload the video
-  //   });
-
-    
-  // }
-
-  // ngOnDestroy(): void {
-  //   if (this.player) {
-  //     this.player.dispose(); // Cleanup the player when component is destroyed
-  //   }
-  // }
 
 
   async loadVideo(){

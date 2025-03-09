@@ -101,7 +101,6 @@ export class VjsPlayerComponent {
 
   
   returnToMainPage(){
-    console.log('hel')
     this.router.navigate(['/main']);
   }
   

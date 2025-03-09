@@ -44,6 +44,7 @@ export class MainPageComponent {
       next: (data) => {
         this.videos = data;
         this.sortVideos();
+        
       },
       error: (error) => {
         console.error('Error fetching videos:', error);
