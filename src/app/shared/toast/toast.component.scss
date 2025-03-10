@@ -53,3 +53,23 @@
     border: 1px solid white;
     margin-right: 16px;
 }
+
+@media(max-width: 450px) and (max-height: 950px){
+    .toast-container{
+        transform: translateY(200%);
+        width: 100%;
+        z-index: 300;
+
+        &.show{
+            transform: translateY(0);
+        }
+    }
+
+
+    :host{
+        z-index: 500;
+        left: 0;
+        right: 0;
+        bottom: 8px;
+    }
+}

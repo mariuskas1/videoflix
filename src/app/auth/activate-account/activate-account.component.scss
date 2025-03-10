@@ -31,3 +31,18 @@
     text-align: center;
 }
 
+@media(max-width:600px){
+    .content{
+      width: 90%;
+      padding: 32px 24px;
+    }
+
+    .msg{
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+
+    h1{
+        text-align: center;
+    }
+  }
