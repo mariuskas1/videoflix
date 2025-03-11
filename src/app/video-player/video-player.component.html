@@ -1,7 +1,13 @@
 <div class="video-bg">
     @if (videoLoaded && video.video_file) {
         
-        <app-vjs-player [options]="{autoplay: false,  fluid: true, aspectRatio: '16:9', controls: true, sources: [{ src: video.video_file, type: 'video/mp4' }]}"
+        <app-vjs-player [options]="{autoplay: false,  fluid: true, aspectRatio: '16:9', controls: true, 
+        sources: [
+            { src: video.video_file_120p, type: 'video/mp4', label: '120p' },
+            { src: video.video_file_360p, type: 'video/mp4', label: '360p' },
+            { src: video.video_file_720p, type: 'video/mp4', label: '720p' },
+            { src: video.video_file_1080p, type: 'video/mp4', label: '1080p' }
+        ]}"
         [videoTitle]="video.title"></app-vjs-player>
     }
   
