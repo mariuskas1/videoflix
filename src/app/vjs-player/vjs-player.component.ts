@@ -1,6 +1,7 @@
 import {Component, ElementRef, Input, OnDestroy, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import { Router } from '@angular/router';
 import videojs from 'video.js';
+import 'videojs-http-source-selector';
 
 
 
@@ -23,6 +24,7 @@ export class VjsPlayerComponent {
       sources: {
           src: string,
           type: string,
+          label: string
       }[],
   };
 
@@ -37,14 +39,36 @@ export class VjsPlayerComponent {
     this.instantiateVideoPlayer();
   }
 
+  instantiateVideoPlayer() {
+    if (!this.options) {
+      console.error('Video.js options are not defined');
+      return;
+    }
 
-  instantiateVideoPlayer(){
-    this.player = videojs(this.target.nativeElement, this.options, function onPlayerReady() {
-      // console.log('onPlayerReady', this);
+    this.player = videojs(this.target.nativeElement, this.options, () => {
+      console.log('Player is ready');
+
+      // Set video sources
+      this.player.src(this.options!.sources);
+
+      // Ensure httpSourceSelector plugin is available
+      if (typeof this.player.httpSourceSelector === 'function') {
+        this.player.httpSourceSelector();
+      } else {
+        console.warn('httpSourceSelector plugin not loaded properly');
+      }
     });
+
     this.addTitleToControlBar();
     this.addHeaderToPlayer();
   }
+
+  // instantiateVideoPlayer(){
+  //   this.player = videojs(this.target.nativeElement, this.options, function onPlayerReady() {
+  //   });
+  //   this.addTitleToControlBar();
+  //   this.addHeaderToPlayer();
+  // }
 
   addTitleToControlBar() {
     if (!this.player) return;
