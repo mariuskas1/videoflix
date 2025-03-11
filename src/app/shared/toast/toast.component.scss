@@ -5,6 +5,8 @@
     left: 24px;
     bottom: 40px;
     display: block;
+    z-index: 99900;
+
 }
 
 .toast-container{
@@ -18,7 +20,7 @@
     color: white;
     position: relative;
     transition: all 200ms ease;
-    z-index: 200;
+    // z-index: 99900;
 
     &.show{
         transform: translateX(0);
@@ -52,6 +54,14 @@
     width: 0px;
     border: 1px solid white;
     margin-right: 16px;
+    margin-left: 8px;
+}
+
+.close-icon{
+    cursor: pointer;
+    &:hover{
+        scale: 1.05;
+    }
 }
 
 @media(max-width: 450px) and (max-height: 950px){
