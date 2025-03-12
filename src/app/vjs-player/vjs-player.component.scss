@@ -144,3 +144,12 @@
     color: white !important;
 }
 
+
+@media(max-width: 950px){
+    .header-logo{
+        width: 32px;
+    }
+    .arrow-back{
+        width: 40px;
+    }
+}

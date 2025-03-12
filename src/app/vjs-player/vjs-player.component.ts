@@ -46,8 +46,6 @@ export class VjsPlayerComponent {
     }
 
     this.player = videojs(this.target.nativeElement, this.options, () => {
-      console.log('Player is ready');
-
       // Set default video source (720p)
       this.player.src(this.options!.sources.find(source => source.label === '720p'));
 
@@ -141,7 +139,7 @@ export class VjsPlayerComponent {
     headerElement.className = 'vjs-video-header';
     headerElement.innerHTML = `
       <img src="./../../assets/img/arrow_back.png" class="arrow-back" (click)="returnToMainPage()">
-      <img src="./../../assets/img/logo_small.png">
+      <img src="./../../assets/img/logo_small.png" class="header-logo">
     `;
 
     playerElement.appendChild(headerElement);
