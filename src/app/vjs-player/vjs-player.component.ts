@@ -1,8 +1,6 @@
 import {Component, ElementRef, Input, OnDestroy, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import { Router } from '@angular/router';
 import videojs from 'video.js';
-import 'videojs-http-source-selector';
-
 
 
 @Component({
@@ -46,8 +44,6 @@ export class VjsPlayerComponent {
     }
 
     this.player = videojs(this.target.nativeElement, this.options, () => {
-      // Set default video source (720p)
-      this.player.src(this.options!.sources.find(source => source.label === '720p'));
 
       this.addResolutionSelector();
     });
@@ -106,16 +102,16 @@ export class VjsPlayerComponent {
             const wasPlaying = !player.paused(); 
 
             // Switch to the next resolution
+            player.pause();
             player.src(sources[nextIndex]);
-          
-            // ✅ Restore playback position after the new source loads
+
             player.ready(() => {
               player.currentTime(currentTime);
               if (wasPlaying) {
                   player.play();
               }
             });
-
+          
             const buttonText = this.el().querySelector('.vjs-resolution-text') as HTMLElement | null;
             if (buttonText) {
                 buttonText.innerText = sources[nextIndex].label;
