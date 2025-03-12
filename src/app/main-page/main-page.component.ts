@@ -43,6 +43,7 @@ export class MainPageComponent {
     this.videosObservable().pipe(takeUntil(this.unsubscribe$)).subscribe({
       next: (data) => {
         this.videos = data;
+        console.log(this.videos);
         this.sortVideos();
         
       },

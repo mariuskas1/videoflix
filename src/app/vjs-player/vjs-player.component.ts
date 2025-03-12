@@ -48,27 +48,16 @@ export class VjsPlayerComponent {
     this.player = videojs(this.target.nativeElement, this.options, () => {
       console.log('Player is ready');
 
-      // Set video sources
-      this.player.src(this.options!.sources);
+      // Set default video source (720p)
+      this.player.src(this.options!.sources.find(source => source.label === '720p'));
 
-      // Ensure httpSourceSelector plugin is available
-      if (typeof this.player.httpSourceSelector === 'function') {
-        this.player.httpSourceSelector();
-      } else {
-        console.warn('httpSourceSelector plugin not loaded properly');
-      }
+      this.addResolutionSelector();
     });
 
     this.addTitleToControlBar();
     this.addHeaderToPlayer();
   }
 
-  // instantiateVideoPlayer(){
-  //   this.player = videojs(this.target.nativeElement, this.options, function onPlayerReady() {
-  //   });
-  //   this.addTitleToControlBar();
-  //   this.addHeaderToPlayer();
-  // }
 
   addTitleToControlBar() {
     if (!this.player) return;
@@ -85,6 +74,63 @@ export class VjsPlayerComponent {
         volumePanel.el().insertAdjacentElement('afterend', titleElement);
     }
   }
+
+  addResolutionSelector() {
+    const player = this.player;
+
+    if (!player) return;
+
+    const Button = videojs.getComponent('Button');
+
+    class ResolutionSelector extends Button {
+      constructor(player: any, options?: any) {
+        super(player, options);
+        this.addClass('vjs-resolution-button');
+
+        // Create a text element inside the button
+        const buttonText = document.createElement('span');
+        buttonText.innerText = '720p'; // Default text
+        buttonText.classList.add('vjs-resolution-text');
+
+        this.el().appendChild(buttonText);
+      }
+
+        handleClick() {
+            const currentSrc = player.currentSrc();
+            const sources = player.options_.sources;
+
+            // Find the next resolution in the list (looping back to the start)
+            let currentIndex = sources.findIndex((src: { src: string; label: string }) => src.src === currentSrc);
+            let nextIndex = (currentIndex + 1) % sources.length;
+
+            // Save current playback time
+            const currentTime = player.currentTime();
+            const wasPlaying = !player.paused(); 
+
+            // Switch to the next resolution
+            player.src(sources[nextIndex]);
+          
+            // ✅ Restore playback position after the new source loads
+            player.ready(() => {
+              player.currentTime(currentTime);
+              if (wasPlaying) {
+                  player.play();
+              }
+            });
+
+            const buttonText = this.el().querySelector('.vjs-resolution-text') as HTMLElement | null;
+            if (buttonText) {
+                buttonText.innerText = sources[nextIndex].label;
+            }
+        }
+    }
+
+    // Register the button component
+    videojs.registerComponent('ResolutionSelector', ResolutionSelector);
+
+    // Add the button to the control bar
+    player.getChild('controlBar').addChild('ResolutionSelector', {}, 10);
+}
 
 
   addHeaderToPlayer(){
