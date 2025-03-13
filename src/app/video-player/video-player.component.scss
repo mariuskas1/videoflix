@@ -5,6 +5,7 @@
     width: 100%;
     @include displayFlex($fd:column);
     background-color: rgba(20, 20, 20, 1);
+    overflow: hidden;
 }
 
 video{
@@ -27,6 +28,16 @@ app-vjs-player {
         width: 100%;
     }
 }
+
   
+@media screen and (max-width: 900px) and (orientation: landscape){
+    app-vjs-player{
+        height: 100vh;  
+        aspect-ratio: 16 / 9;
+        width: auto;
+        max-height: 100vh; 
+       
+    }
+}
 
   
