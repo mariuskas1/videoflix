@@ -87,6 +87,7 @@ h2{
 .category-div{
     width: 100%;
     padding-left: 96px;
+    padding-right: 8px;
     @include displayFlex($fd:column, $ai: flex-start);
     overflow: hidden;
     z-index: 100;
@@ -195,6 +196,35 @@ h2{
 
     .video-info-wrapper{
         margin-bottom: 64px;
+    }
+
+}
+
+@media screen and (max-width: 900px) and (orientation: landscape){
+    .category-div.new{
+        display: none;
+    }
+
+    .category-div.new-mobile{
+        display: block;
+    }
+
+    .max-width-container.main{
+        align-items: flex-end;
+    }
+
+    .video-info-wrapper{
+        margin-bottom: 40px;
+    }
+
+    h2{
+        font-size: 56px;
+        margin-top: 100px;
+        margin-bottom: 0px;
+    }
+   
+    .btn{
+        margin-top: 24px;
     }
 
 }
