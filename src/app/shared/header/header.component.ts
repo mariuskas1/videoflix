@@ -2,6 +2,7 @@ import { CommonModule, Location } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +14,7 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
   @Input() usecase:string = '';
 
-  constructor(private router: Router, private location: Location){}
+  constructor(private router: Router, private location: Location, private authService: AuthService){}
 
 
   logOut(){
@@ -27,17 +28,17 @@ export class HeaderComponent {
   }
 
   redirectToMain(){
-    if (this.isUserLoggedIn()) {
-      this.router.navigate(['/main']);
-    } else {
-      this.router.navigate(['']); 
-    }
+    this.authService.isAuthenticated().subscribe(isAuthenticated => {
+      if (isAuthenticated) {
+        this.router.navigate(['/main']);
+      } else {
+        this.router.navigate(['']);  
+      }
+    });
   }
 
-
-  isUserLoggedIn(): boolean {
-    return !!sessionStorage.getItem('vfUserData') || !!localStorage.getItem('vfRememberedUserData');
-  }
 
   
+
+
 }
