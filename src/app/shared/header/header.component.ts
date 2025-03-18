@@ -25,4 +25,8 @@ export class HeaderComponent {
   redirect(){
     this.location.back();
   }
+
+  redirectToMain(){
+    this.router.navigate(['/main']);
+  }
 }

@@ -28,8 +28,6 @@ export class VideoPlayerComponent {
 
   
 
-
-
   async loadVideo(){
     const videoId = this.route.snapshot.paramMap.get('id');
     if(videoId){
