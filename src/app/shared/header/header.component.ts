@@ -27,6 +27,17 @@ export class HeaderComponent {
   }
 
   redirectToMain(){
-    this.router.navigate(['/main']);
+    if (this.isUserLoggedIn()) {
+      this.router.navigate(['/main']);
+    } else {
+      this.router.navigate(['']); 
+    }
   }
+
+
+  isUserLoggedIn(): boolean {
+    return !!sessionStorage.getItem('vfUserData') || !!localStorage.getItem('vfRememberedUserData');
+  }
+
+  
 }
